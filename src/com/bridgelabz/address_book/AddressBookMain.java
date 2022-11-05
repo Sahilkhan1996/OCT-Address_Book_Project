@@ -21,6 +21,8 @@ public class AddressBookMain {
 		for (Object object : a1) {
 			System.out.println(object);
 		}
+
+		System.out.println("----------------------------------------------------------");
 		// editing the contacts which you have added
 		System.out.println("Please enter the first name of the added contact to edit: ");
 		String firstNameToEdit = sc.next();
@@ -30,8 +32,17 @@ public class AddressBookMain {
 		for (Object object : a1) {
 			System.out.println(object);
 		}
-		System.out.println("Thank you for using Address Book Program!");
 
+		System.out.println("----------------------------------------------------------");
+		// Deleting the Record with the First name
+		System.out.println("Please enter the first name of the added contact to Delete: ");
+		String firstNameToEdit1 = sc.next();
+		deleteContacts(firstNameToEdit1);
+		for (Object object : a1) {
+			System.out.println(object);
+		}
+
+		System.out.println("Thank you for using Address Book Program!");
 		sc.close();
 	}
 
@@ -82,7 +93,21 @@ public class AddressBookMain {
 		if (isContactFound) {
 			System.out.println("Sorry there is no contact with this first name");
 		}
+	}
 
+	private static void deleteContacts(String firstNameToEdit1) {
+		boolean isContactFound = true;
+		for (Contacts object : a1) {
+			if (firstNameToEdit1.equals(object.getFirstName())) {
+				a1.remove(object);
+				System.out.println("Contact is deleted sucessfully!");
+				isContactFound = false;
+				break;
+			}
+		}
+		if (isContactFound) {
+			System.out.println("Sorry there is no contact with this First Name");
+		}
 	}
 
 }
