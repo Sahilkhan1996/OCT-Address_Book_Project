@@ -1,6 +1,11 @@
 package com.bridgelabz.address_book;
 
+import java.util.InputMismatchException;
+import java.util.Scanner;
+
 public class Contacts {
+	static Scanner sc = new Scanner(System.in);
+
 	private String firstName;
 	private String lastName;
 	private String address;
@@ -9,22 +14,6 @@ public class Contacts {
 	private int zip;
 	private int phoneNumber;
 	private String email;
-
-	public Contacts(String firstName, String lastName, String address, String city, String state, int zip,
-			int phoneNumber, String email) {
-		super();
-		this.firstName = firstName;
-		this.lastName = lastName;
-		this.address = address;
-		this.city = city;
-		this.state = state;
-		this.zip = zip;
-		this.phoneNumber = phoneNumber;
-		this.email = email;
-	}
-
-	public Contacts() {
-		}
 
 	public String getFirstName() {
 		return firstName;
@@ -88,6 +77,29 @@ public class Contacts {
 
 	public void setEmail(String email) {
 		this.email = email;
+	}
+
+	public void editingContact() {
+		try {
+			System.out.println("Please enter the first name: ");
+			setFirstName(sc.next());
+			System.out.println("Please enter the last name: ");
+			setLastName(sc.next());
+			System.out.println("Please enter the Address: ");
+			setAddress(sc.next());
+			System.out.println("Please enter the city: ");
+			setCity(sc.next());
+			System.out.println("Please enter the state: ");
+			setState(sc.next());
+			System.out.println("Please enter the zip: ");
+			setZip(sc.nextInt());
+			System.out.println("Please enter the Phone Number: ");
+			setPhoneNumber(sc.nextInt());
+			System.out.println("Please enter the email: ");
+			setEmail(sc.next());
+		} catch (InputMismatchException e) {
+			System.out.println(e);
+		}
 	}
 
 	@Override
