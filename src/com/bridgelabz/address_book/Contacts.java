@@ -5,7 +5,6 @@ import java.util.Scanner;
 
 public class Contacts {
 	static Scanner sc = new Scanner(System.in);
-
 	private String firstName;
 	private String lastName;
 	private String address;
