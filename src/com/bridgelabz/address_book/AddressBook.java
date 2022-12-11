@@ -16,7 +16,7 @@ public class AddressBook {
 			System.out.println("Please enter any number to select \n 1. Add Contact"
 					+ " \n 2. Edit Contact \n 3. Delete Contact \n 4. Display Contact \n 5. Exit from Contact Menu to Main Menu");
 			int selectOption = scanner.nextInt();
-			//System.out.println("Input checker: " + selectOption);
+			// System.out.println("Input checker: " + selectOption);
 			switch (selectOption) {
 			case 1: {
 				// Adding new contacts to address book
@@ -87,13 +87,23 @@ public class AddressBook {
 	}
 
 	public void addingContacts(int numberOfContacts) {
-		// contacts.editingContact();
 		for (int i = 1; i <= numberOfContacts; i++) {
 
 			try {
 				Contacts p1 = new Contacts();
-				System.out.println("Please enter the first name: ");
-				p1.setFirstName(scanner.next());
+				// UC7: Checking if the first name is already added else ask the name again to
+				// add in the contact
+				// until new name not provided by the user
+				boolean flag = true;
+				while (flag) {
+					System.out.println("Please enter the first name: ");
+					String firstName = scanner.next();
+					if (!checker(firstName)) {// if return true which means the contact with the first name is NOT in the
+												// list
+						p1.setFirstName(firstName);
+						flag = false;
+					}
+				}
 				System.out.println("Please enter the last name: ");
 				p1.setLastName(scanner.next());
 				System.out.println("Please enter the Address: ");
@@ -120,6 +130,22 @@ public class AddressBook {
 		}
 
 	}
+
+//returns false if the first name is already in the contact list
+	private boolean checker(String firstName) {
+		boolean res=contactsList.stream().anyMatch(i1->i1.getFirstName().equals(firstName));
+		return res;
+	/*	for (Contacts obj : contactsList) {
+			// if (firstName.equals(obj.getFirstName())) {
+			if (firstName.equalsIgnoreCase(obj.getFirstName())) {
+				System.out.println("Sorry! Duplicate first Name is not allowed.");
+				return false;
+			}
+		}
+
+		return true;*/
+	}
+
 	// I/P:First Name
 	// O/P: editing all the details of the contact
 
@@ -152,4 +178,4 @@ public class AddressBook {
 			System.out.println("Sorry there is no contact with this First Name");
 		}
 	}
- }
+}

@@ -1,6 +1,7 @@
 package com.bridgelabz.address_book;
 
 import java.util.InputMismatchException;
+import java.util.Objects;
 import java.util.Scanner;
 
 public class Contacts {
@@ -99,6 +100,28 @@ public class Contacts {
 		} catch (InputMismatchException e) {
 			System.out.println(e);
 		}
+	}
+	
+
+	@Override
+	public int hashCode() {
+		return Objects.hash(address, city, email, firstName, lastName, phoneNumber, state, zip);
+	}
+
+	//UC7: Overriding equals method to check the obj details
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Contacts other = (Contacts) obj;
+		return Objects.equals(address, other.address) && Objects.equals(city, other.city)
+				&& Objects.equals(email, other.email) && Objects.equals(firstName, other.firstName)
+				&& Objects.equals(lastName, other.lastName) && phoneNumber == other.phoneNumber
+				&& Objects.equals(state, other.state) && zip == other.zip;
 	}
 
 	@Override
