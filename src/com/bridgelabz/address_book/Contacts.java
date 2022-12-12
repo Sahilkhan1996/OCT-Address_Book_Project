@@ -11,8 +11,8 @@ public class Contacts {
 	private String address;
 	private String city;
 	private String state;
-	private int zip;
-	private int phoneNumber;
+	private Integer zip;
+	private Integer phoneNumber;
 	private String email;
 
 	public String getFirstName() {
