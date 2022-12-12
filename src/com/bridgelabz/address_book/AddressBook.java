@@ -74,7 +74,6 @@ public class AddressBook {
 				stopper = false;
 				AddressBookMain.main(null);
 				System.out.println("Thank you for using Address Book Program!");
-				// System.exit(selectOption);
 			}
 
 			default:
@@ -98,7 +97,8 @@ public class AddressBook {
 				while (flag) {
 					System.out.println("Please enter the first name: ");
 					String firstName = scanner.next();
-					if (!checker(firstName)) {// if return true which means the contact with the first name is NOT in the
+					if (!checker(firstName)) {// if return true which means the contact with the first name is NOT in
+												// the
 												// list
 						p1.setFirstName(firstName);
 						flag = false;
@@ -133,17 +133,17 @@ public class AddressBook {
 
 //returns false if the first name is already in the contact list
 	private boolean checker(String firstName) {
-		boolean res=contactsList.stream().anyMatch(i1->i1.getFirstName().equals(firstName));
+		boolean res = contactsList.stream().anyMatch(i1 -> i1.getFirstName().equals(firstName));
 		return res;
-	/*	for (Contacts obj : contactsList) {
-			// if (firstName.equals(obj.getFirstName())) {
-			if (firstName.equalsIgnoreCase(obj.getFirstName())) {
-				System.out.println("Sorry! Duplicate first Name is not allowed.");
-				return false;
-			}
-		}
-
-		return true;*/
+		/*
+		 * for (Contacts obj : contactsList) { // if
+		 * (firstName.equals(obj.getFirstName())) { if
+		 * (firstName.equalsIgnoreCase(obj.getFirstName())) {
+		 * System.out.println("Sorry! Duplicate first Name is not allowed."); return
+		 * false; } }
+		 * 
+		 * return true;
+		 */
 	}
 
 	// I/P:First Name
