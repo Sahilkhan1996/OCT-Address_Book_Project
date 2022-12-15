@@ -21,7 +21,7 @@ public class AddressBookMain {
 		while (stopper) {
 			System.out.println("Please select any number from the below Main Menu");
 			System.out.println(
-					"1. Add AddressBook \n2. View AddressBook \n3. View the Person in the City or State \n4. View the Person by City or State \n5. Count by City or State \n6. Sort by name,city, state or zip \n7. Exit from the Address Book program");
+					"1. Add AddressBook \n2. View AddressBook \n3. View the Person in the City or State \n4. View the Person by City or State \n5. Count by City or State \n6. Sort by name,city, state or zip \n7. Read the AddressBook Contacts \n8. Exit from the Address Book program");
 			int selection = sc.nextInt();
 			switch (selection) {
 			case 1: {
@@ -245,7 +245,12 @@ public class AddressBookMain {
 				}
 
 				break;
-			case 7: {
+			case 7:{
+				AdressBookFileIO.writeAddressBookData(mapAddressBook);
+				AdressBookFileIO.readAddressBookData(mapAddressBook);
+			}
+				break;
+			case 8: {
 				System.out.println("Thank you for using Address Book");
 				sc.close();
 				System.exit(selection);
