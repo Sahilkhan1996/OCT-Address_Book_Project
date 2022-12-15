@@ -21,7 +21,7 @@ public class AddressBookMain {
 		while (stopper) {
 			System.out.println("Please select any number from the below Main Menu");
 			System.out.println(
-					"1. Add AddressBook \n2. View AddressBook \n3. View the Person in the City or State \n4. View the Person by City or State \n5. Count by City or State \n6. Exit from the Address Book program");
+					"1. Add AddressBook \n2. View AddressBook \n3. View the Person in the City or State \n4. View the Person by City or State \n5. Count by City or State \n6. Sort by Name \n7. Exit from the Address Book program");
 			int selection = sc.nextInt();
 			switch (selection) {
 			case 1: {
@@ -182,7 +182,21 @@ public class AddressBookMain {
 					System.out.println("Incorrect selection. Please select City or State");
 
 				break;
-			case 6: {
+			case 6:
+				for (Map.Entry<String, AddressBook> pair : mapAddressBook.entrySet()) {
+
+					System.out.println("Sorting entries for AddressBook '" + pair.getKey() + "' by Name:" + "\n");
+
+					pair.getValue().contactsList.stream().sorted((contact1, contact2) ->
+
+					contact1.getFirstName().compareToIgnoreCase(contact2.getFirstName())
+
+					).forEach(contact -> System.out.println(contact));
+
+				}
+
+				break;
+			case 7: {
 				System.out.println("Thank you for using Address Book");
 				sc.close();
 				System.exit(selection);
