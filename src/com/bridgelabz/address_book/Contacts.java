@@ -59,7 +59,7 @@ public class Contacts {
 		return zip;
 	}
 
-	public void setZip(int zip) {
+	public void setZip(Integer zip) {
 		this.zip = zip;
 	}
 
@@ -67,7 +67,7 @@ public class Contacts {
 		return phoneNumber;
 	}
 
-	public void setPhoneNumber(int phoneNumber) {
+	public void setPhoneNumber(Integer phoneNumber) {
 		this.phoneNumber = phoneNumber;
 	}
 
